@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dhbw.javafx.Main2">
+   <children>
+      <Label fx:id="outputLabel" layoutX="14.0" layoutY="37.0" prefHeight="53.0" prefWidth="120.0" text="TETRIS" textFill="#0d095b">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Pane fx:id="Layout" layoutX="153.0" layoutY="37.0" prefHeight="500.0" prefWidth="300.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="153.0" AnchorPane.topAnchor="37.0" />
+      <Pane fx:id="inputLevel" layoutX="470.0" layoutY="270.0" prefHeight="75.0" prefWidth="120.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="265.0" AnchorPane.rightAnchor="16.0">
+         <children>
+            <Label fx:id="inputLabel2" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="9.0" prefHeight="36.0" prefWidth="78.0" text="Level" textFill="#0d095b">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="inputPunkte" layoutX="470.0" layoutY="370.0" prefHeight="75.0" prefWidth="120.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="149.0" AnchorPane.rightAnchor="16.0">
+         <children>
+            <Label fx:id="inputLabel21" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="9.0" prefHeight="36.0" prefWidth="78.0" text="Punkte" textFill="#0d095b">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="inputZeilen" layoutX="470.0" layoutY="470.0" prefHeight="75.0" prefWidth="120.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="55.0" AnchorPane.rightAnchor="16.0">
+         <children>
+            <Label fx:id="inputLabel211" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="9.0" prefHeight="36.0" prefWidth="78.0" text="Zeilen" textFill="#0d095b">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="nextObject" layoutX="470.0" layoutY="90.0" prefHeight="120.0" prefWidth="120.0" style="-fx-background-color: black;" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="90.0" />
+      <Label layoutX="454.0" layoutY="37.0" prefHeight="53.0" prefWidth="140.0" text="Nächstes Objekt" textFill="#0d095b" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="37.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="215.0" prefHeight="17.0" prefWidth="37.0" text="Hier" textFill="#0d095b" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="46.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="265.0" text="könnte" textFill="#0d095b" AnchorPane.bottomAnchor="308.0" AnchorPane.leftAnchor="46.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="315.0" prefHeight="27.0" prefWidth="44.0" text="Ihre" textFill="#0d095b" AnchorPane.bottomAnchor="258.0" AnchorPane.leftAnchor="46.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="365.0" text="Werbung" textFill="#0d095b" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="46.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="415.0" text="stehen." textFill="#0d095b" AnchorPane.bottomAnchor="158.0" AnchorPane.leftAnchor="46.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
