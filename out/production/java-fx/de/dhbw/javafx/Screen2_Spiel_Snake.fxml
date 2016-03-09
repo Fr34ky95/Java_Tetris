@@ -13,7 +13,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Pane fx:id="Layout" layoutX="153.0" layoutY="37.0" prefHeight="500.0" prefWidth="300.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="153.0" AnchorPane.topAnchor="37.0" />
+      <Pane fx:id="Layout" layoutX="150.0" layoutY="40.0" prefHeight="500.0" prefWidth="300.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="42.0" />
       <Pane fx:id="inputLevel" layoutX="470.0" layoutY="270.0" prefHeight="75.0" prefWidth="120.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="265.0" AnchorPane.rightAnchor="16.0">
          <children>
             <Label fx:id="inputLabel2" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="9.0" prefHeight="36.0" prefWidth="78.0" text="Level" textFill="#0d095b">

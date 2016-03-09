@@ -28,10 +28,16 @@ public class Main2 {
     public Pane Layout;
     public AnchorPane screen1;
 
-    double game_size_height = Layout.getHeight() / (GameObject.Object_size);
-    double game_size_width = Layout.getWidth() / (GameObject.Object_size);
+    double game_size_height ;
+    double game_size_width;
 
-        public MyController myController;
+    public MyController myController;
+
+    public Main2(MyController myController) {
+        this.myController = myController;
+         game_size_height = Layout.getHeight() / (GameObject.Object_size);
+         game_size_width = Layout.getWidth() / (GameObject.Object_size);
+    }
 
     public void Buttonclicked(ActionEvent actionEvent) {
 

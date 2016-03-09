@@ -10,7 +10,7 @@ public class MyController {
     public Main2 main2;
     public void MyController ()
     {
-        main2 = new Main2();
+        main2 = new Main2(this);
         GameObjectArray = new GameObject[(int)main2.game_size_width][(int)main2.game_size_height];
 
         generateObject();
