@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="screen1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dhbw.javafx.Main2">
+<AnchorPane fx:id="screen1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.dhbw.javafx.StartController">
    <children>
       <Button fx:id="ClickButton" alignment="CENTER" layoutX="50.0" layoutY="79.0" mnemonicParsing="false" onAction="#Buttonclicked" prefHeight="42.0" prefWidth="104.0" text="Spiel Starten" AnchorPane.bottomAnchor="79.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="79.0" />
       <Label fx:id="outputLabel" alignment="CENTER" layoutX="68.0" layoutY="14.0" prefHeight="27.0" prefWidth="64.0" text="TETRIS" textFill="#0d095b" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="68.0" AnchorPane.topAnchor="14.0">
