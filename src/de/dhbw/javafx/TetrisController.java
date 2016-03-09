@@ -16,8 +16,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Main2 {
 
+public class TetrisController {
+    public void init(){}
     public Button ClickButton;
 
     public Label outputLabel;
@@ -31,36 +32,24 @@ public class Main2 {
     double game_size_height ;
     double game_size_width;
 
-    public MyController myController;
-
-    public Main2(MyController myController) {
-        this.myController = myController;
-         game_size_height = Layout.getHeight() / (GameObject.Object_size);
-         game_size_width = Layout.getWidth() / (GameObject.Object_size);
-    }
-
-    public void Buttonclicked(ActionEvent actionEvent) {
-
-        myController = new MyController();
-        Stage stage = new Stage();
-        try {
-            stage.setTitle("Tetris");
-            Parent root2 = FXMLLoader.load(getClass().getResource("Screen2_Spiel_Snake.fxml"));
-            Scene scene = new Scene(root2, 600, 600);
-            stage.setScene(scene);
-            stage.show();
-
-            ((Stage) outputLabel.getScene().getWindow()).close();
-            //paint();
-        } catch (IOException e) {
 
 
-        }
+    public void generateObject (){
+        int PosX = ((int)Math.random())/GameObject.Object_size;
+        int PosY=500/GameObject.Object_size;
+
+        GameObject gameObject= new GameObject(PosX,PosY);
+        GameObjectArray [PosX][PosY] = gameObject;
+
+
     }
 
 
+    public GameObject [][] GameObjectArray;
 
 
+
+    //GameObjectArray = new GameObject[][]
 
     /*  public void paint(){
         for (int i=0; i<game_size_width;i++)

@@ -8,13 +8,13 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-//        public Main2 main2;
+
 
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        //main2 = new Main2();
+
 
 
         Parent root = FXMLLoader.load(getClass().getResource("Screen1_Spiel_Snake.fxml"));
