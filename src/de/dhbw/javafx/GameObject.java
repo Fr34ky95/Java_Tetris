@@ -9,9 +9,23 @@ import javafx.scene.shape.Rectangle;
 public class GameObject extends Rectangle{
     public static int Object_size= 20;
 
-    public GameObject(int StartX, int StartY) {
+    private double speed;
+    private boolean movesRight = true;
+
+    public GameObject(int StartX, int StartY, double speed ) {
         super(0,0,Object_size,Object_size);
+        this.speed = speed;
     }
+    public void move() {
+        if (movesRight) {
+            setLayoutX(getLayoutX() + speed);
+        }else {
+            setLayoutX(getLayoutX() - speed);
+
+        }
+    }
+
+
 }
 
 

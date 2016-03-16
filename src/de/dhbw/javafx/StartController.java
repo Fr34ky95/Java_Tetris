@@ -1,11 +1,14 @@
 package de.dhbw.javafx;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -21,7 +24,7 @@ public class StartController {
     public Button ClickButton;
     public AnchorPane screen1;
 
-
+    public Stage stage;
 
 
     public void Buttonclicked(ActionEvent actionEvent) {
@@ -31,17 +34,26 @@ public class StartController {
         Stage stage = new Stage();
         try {
             stage.setTitle("Tetris");
-            Parent root2 = FXMLLoader.load(getClass().getResource("Screen2_Spiel_Tetris.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Screen2_Spiel_Tetris.fxml"));
+            loader.load();
+            Parent root2 = loader.getRoot();
             Scene scene = new Scene(root2, 600, 600);
             stage.setScene(scene);
+
+
+            TetrisController controller = loader.getController();
+            controller.init(stage);
             stage.show();
-            ((Stage) outputLabel.getScene().getWindow()).close();
+
+            this.stage.close();
 
 
 
         } catch (IOException e) {
-
+            e.printStackTrace();
 
         }
     }
+
+
 }

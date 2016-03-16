@@ -10,23 +10,33 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.IOException;
 
 
-public class TetrisController {
-    public void initialize(){
-      GameObjectArray = new GameObject[300/GameObject.Object_size][500/GameObject.Object_size];
+public class TetrisController  implements EventHandler<KeyEvent> {
 
-        generateLayout();
-        generateObject();
-        paint();
-    }
-    public Button ClickButton;
+    private Stage thisStage;
 
     public Label outputLabel;
     public Pane inputLevel;
@@ -34,53 +44,77 @@ public class TetrisController {
     public Pane inputZeilen;
     public Pane nextObject;
     public Pane Layout;
-    public AnchorPane screen1;
+    private GameObject active;
 
+    public GameObject[][] GameObjectArray;
+    public final int game_size_X = 300 / GameObject.Object_size;
+    public final int game_size_Y = 500 / GameObject.Object_size;
 
-
-    public GameObject [][] GameObjectArray;
-    public final int game_size_X = 300/GameObject.Object_size;
-    public final int game_size_Y = 500/GameObject.Object_size;
-
-    public void generateObject (){
-        int PosX = (int)(Math.random()*game_size_X);
+    public GameObject generateObject() {
+        int PosX = (int) (Math.random() * game_size_X);
         int PosY = 0;
 
-        GameObject gameObject= new GameObject(PosX,PosY);
-        GameObjectArray [PosX][PosY] = gameObject;
-        System.out.println("Object generiert");
+        GameObject gameObject = new GameObject(PosX, PosY, 10);
+        GameObjectArray[PosX][PosY] = gameObject;
+        return gameObject;
     }
+
 
     public void generateLayout() {
-        //Layout = new Pane();
     }
 
-    public void paint(){
-        for (int i=0; i<game_size_X;i++)
-        {
-            for(int j=0; j<game_size_Y;j++)
-            {
-                if(GameObjectArray[i][j] != null)
-                {
-                    paintGameObject(GameObjectArray[i][j],i,j);
-                    System.out.println("Object gezeichnet");
+    public void paint() {
+        for (int i = 0; i < game_size_X; i++) {
+            for (int j = 0; j < game_size_Y; j++) {
+                if (GameObjectArray[i][j] != null) {
+                    paintGameObject(GameObjectArray[i][j], i, j);
+
                 }
             }
         }
     }
 
-        public void paintGameObject(GameObject gameObject, int PosX, int PosY){
+    public void paintGameObject(GameObject gameObject, int PosX, int PosY) {
 
-            if(Layout.getChildren().contains(gameObject) != true)
-            {
-                Layout.getChildren().add(gameObject);
-            }
-            gameObject.setStroke(Color.ORANGE);
-            gameObject.setFill(Color.ORANGE);
-            gameObject.setLayoutX(PosX*GameObject.Object_size);
-            gameObject.setLayoutY(PosY*GameObject.Object_size);
-            System.out.println("Gameobject gezeichnet");
+        if (Layout.getChildren().contains(gameObject) != true) {
+            Layout.getChildren().add(gameObject);
         }
+        gameObject.setStroke(Color.ORANGE);
+        gameObject.setFill(Color.ORANGE);
+        gameObject.setLayoutX(PosX * GameObject.Object_size);
+        gameObject.setLayoutY(PosY * GameObject.Object_size);
 
     }
 
+
+    public void init(Stage stage) {
+        thisStage = stage;
+        GameObjectArray = new GameObject[300 / GameObject.Object_size][500 / GameObject.Object_size];
+        active = null;
+        generateLayout();
+        active = generateObject();
+        paint();
+        active.move();
+        //outputLabel.getS
+        stage.getScene().setOnKeyPressed(this);
+    }
+
+
+    @Override
+    public void handle(KeyEvent event) {
+        KeyCode code = event.getCode();
+
+        switch (code){
+            case RIGHT:
+                active.setLayoutX(active.getLayoutX()+ 10);
+                break;
+            case LEFT:
+                active.setLayoutX(active.getLayoutX()-10);
+                break;
+        }
+
+
+    }
+
+
+}
