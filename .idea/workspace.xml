@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/java-fx/de/dhbw/javafx/GameObject.class" afterPath="$PROJECT_DIR$/out/production/java-fx/de/dhbw/javafx/GameObject.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/dhbw/javafx/GameObject.java" afterPath="$PROJECT_DIR$/src/de/dhbw/javafx/GameObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/dhbw/javafx/TetrisController.java" afterPath="$PROJECT_DIR$/src/de/dhbw/javafx/TetrisController.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -92,8 +92,8 @@
       <file leaf-file-name="TetrisController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/de/dhbw/javafx/TetrisController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14572865">
-              <caret line="112" column="24" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.63065326">
+              <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -686,7 +686,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458135899382</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Objekte sind im Array">
+      <created>1458139445545</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1458139445545</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -744,7 +750,8 @@
     <MESSAGE value="Gameobject 20*20 erzeugt&#10;wird an einer zufälligen x-Position am oberen Spielfeldrand erzeugt" />
     <MESSAGE value="Objecte können bewegt werden" />
     <MESSAGE value="Objekte können nicht mehr über den Spielfeldrand rauslaufen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Objekte können nicht mehr über den Spielfeldrand rauslaufen" />
+    <MESSAGE value="Objekte sind im Array" />
+    <option name="LAST_COMMIT_MESSAGE" value="Objekte sind im Array" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1156,8 +1163,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/dhbw/javafx/TetrisController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14572865">
-          <caret line="112" column="24" selection-start-line="112" selection-start-column="24" selection-end-line="112" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.63065326">
+          <caret line="118" column="31" selection-start-line="118" selection-start-column="31" selection-end-line="118" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

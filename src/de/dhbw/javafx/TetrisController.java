@@ -106,11 +106,18 @@ public class TetrisController  implements EventHandler<KeyEvent> {
     Timeline loop = new Timeline(new KeyFrame(Duration.millis(200), new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
-            if(active.posY < game_size_Y-1) {
-                GameObjectArray[active.posX][active.posY + 1] = GameObjectArray[active.posX][active.posY];
-                GameObjectArray[active.posX][active.posY] = null;
-                active.posY++;
-                paint();
+            if (active.posY < game_size_Y - 1) {
+                if (GameObjectArray[active.posX][active.posY + 1] == null) {
+
+                        GameObjectArray[active.posX][active.posY + 1] = GameObjectArray[active.posX][active.posY];
+                        GameObjectArray[active.posX][active.posY] = null;
+                        active.posY++;
+                        paint();
+                    }
+
+            }
+            if ((active.posY == game_size_Y - 1) ||(GameObjectArray[active.posX][active.posY + 1] != null)) {
+                active = generateObject();
             }
         }
     }));
@@ -123,19 +130,25 @@ public class TetrisController  implements EventHandler<KeyEvent> {
 
             case RIGHT:
                 if(active.posX<game_size_X-1) {
-                    GameObjectArray[active.posX + 1][active.posY] = GameObjectArray[active.posX][active.posY];
-                    GameObjectArray[active.posX][active.posY] = null;
-                    active.posX++;
-                    paint();
+                    if (GameObjectArray[active.posX + 1][active.posY] == null) {
+
+                            GameObjectArray[active.posX + 1][active.posY] = GameObjectArray[active.posX][active.posY];
+                            GameObjectArray[active.posX][active.posY] = null;
+                            active.posX++;
+                            paint();
+                        }
+
                 }
                 break;
             case LEFT:
                 if(active.posX>0) {
-                    GameObjectArray[active.posX - 1][active.posY] = GameObjectArray[active.posX][active.posY];
-                    GameObjectArray[active.posX][active.posY] = null;
-                    active.posX--;
-                    paint();
+                    if (GameObjectArray[active.posX-1][active.posY ] == null) {
 
+                        GameObjectArray[active.posX - 1][active.posY] = GameObjectArray[active.posX][active.posY];
+                        GameObjectArray[active.posX][active.posY] = null;
+                        active.posX--;
+                        paint();
+                    }
                 }
                 break;
         }
