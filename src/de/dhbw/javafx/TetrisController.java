@@ -46,6 +46,7 @@ public class TetrisController  implements EventHandler<KeyEvent> {
     public Pane Layout;
     private GameObject active;
 
+
     public GameObject[][] GameObjectArray;
     public final int game_size_X = 300 / GameObject.Object_size;
     public final int game_size_Y = 500 / GameObject.Object_size;
@@ -53,6 +54,7 @@ public class TetrisController  implements EventHandler<KeyEvent> {
     public GameObject generateObject() {
         int PosX = (int) (Math.random() * (game_size_X));
         int PosY = 0;
+
 
         GameObject gameObject = new GameObject(PosX, PosY, 10);
         GameObjectArray[PosX][PosY] = gameObject;
@@ -81,7 +83,7 @@ public class TetrisController  implements EventHandler<KeyEvent> {
         }
         gameObject.setStroke(Color.ORANGE);
         gameObject.setFill(Color.ORANGE);
-        gameObject.setLayoutX(PosX * GameObject.Object_size-10);
+        gameObject.setLayoutX(PosX * GameObject.Object_size );
         gameObject.setLayoutY(PosY * GameObject.Object_size);
 
     }
@@ -94,33 +96,71 @@ public class TetrisController  implements EventHandler<KeyEvent> {
         generateLayout();
         active = generateObject();
         paint();
-
-        active.move();
+        loop.setCycleCount(Timeline.INDEFINITE);
+        loop.play();
 
 
         stage.getScene().setOnKeyPressed(this);
     }
 
+    Timeline loop = new Timeline(new KeyFrame(Duration.millis(200), new EventHandler<ActionEvent>() {
+        @Override
+        public void handle(ActionEvent event) {
+            if(active.posY < game_size_Y-1) {
+                GameObjectArray[active.posX][active.posY + 1] = GameObjectArray[active.posX][active.posY];
+                GameObjectArray[active.posX][active.posY] = null;
+                active.posY++;
+                paint();
+            }
+        }
+    }));
 
     @Override
     public void handle(KeyEvent event) {
         KeyCode code = event.getCode();
 
         switch (code){
+
             case RIGHT:
-                if(active.getLayoutX()<Layout.getWidth()- GameObject.Object_size ) {
-                    active.setLayoutX(active.getLayoutX() + 20);
+                if(active.posX<game_size_X-1) {
+                    GameObjectArray[active.posX + 1][active.posY] = GameObjectArray[active.posX][active.posY];
+                    GameObjectArray[active.posX][active.posY] = null;
+                    active.posX++;
+                    paint();
+                }
+                break;
+            case LEFT:
+                if(active.posX>0) {
+                    GameObjectArray[active.posX - 1][active.posY] = GameObjectArray[active.posX][active.posY];
+                    GameObjectArray[active.posX][active.posY] = null;
+                    active.posX--;
+                    paint();
+
+                }
+                break;
+        }
+
+    }
+
+
+  /*  @Override
+    public void handle(KeyEvent event) {
+        KeyCode code = event.getCode();
+
+        switch (code){
+            case RIGHT:
+                if (active.getLayoutX() < Layout.getWidth() - GameObject.Object_size) {
+                        active.setLayoutX(active.getLayoutX() + 20);
                 }
                 break;
             case LEFT:
                 if(active.getLayoutX()>0) {
                     active.setLayoutX(active.getLayoutX() - 20);
-                    break;
                 }
+                break;
         }
 
-
     }
-
+    */
 
 }

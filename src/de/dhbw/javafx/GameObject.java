@@ -11,10 +11,15 @@ public class GameObject extends Rectangle{
 
     private double speed;
     private boolean movesRight = true;
+    private boolean movesDown = true;
+    public int posX;
+    public int posY;
 
     public GameObject(int StartX, int StartY, double speed ) {
         super(0,0,Object_size,Object_size);
         this.speed = speed;
+        this.posX = StartX;
+        this.posY = StartY;
     }
     public void move() {
         if (movesRight) {
@@ -22,6 +27,11 @@ public class GameObject extends Rectangle{
         }else {
             setLayoutX(getLayoutX() - speed);
 
+        }
+    }
+    public void movedown(){
+        if (movesDown){
+            setLayoutY(getLayoutY()+speed);
         }
     }
 
