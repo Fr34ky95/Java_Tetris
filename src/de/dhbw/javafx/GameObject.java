@@ -10,7 +10,7 @@ public class GameObject extends Rectangle{
     public static int Object_size= 20;
 
     public GameObject(int StartX, int StartY) {
-        super(StartX*Object_size,StartY*Object_size);
+        super(0,0,Object_size,Object_size);
     }
 }
 

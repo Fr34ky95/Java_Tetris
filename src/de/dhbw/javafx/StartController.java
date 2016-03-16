@@ -21,7 +21,11 @@ public class StartController {
     public Button ClickButton;
     public AnchorPane screen1;
 
+
+
+
     public void Buttonclicked(ActionEvent actionEvent) {
+
 
 
         Stage stage = new Stage();
@@ -31,8 +35,9 @@ public class StartController {
             Scene scene = new Scene(root2, 600, 600);
             stage.setScene(scene);
             stage.show();
-
             ((Stage) outputLabel.getScene().getWindow()).close();
+
+
 
         } catch (IOException e) {
 

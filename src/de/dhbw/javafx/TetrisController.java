@@ -1,6 +1,7 @@
 package de.dhbw.javafx;
 
 import com.sun.glass.ui.Screen;
+//import com.sun.java.util.jar.pack.Attribute;
 import com.sun.xml.internal.ws.client.sei.ResponseBuilder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +19,13 @@ import java.io.IOException;
 
 
 public class TetrisController {
-    public void init(){}
+    public void initialize(){
+      GameObjectArray = new GameObject[300/GameObject.Object_size][500/GameObject.Object_size];
+
+        generateLayout();
+        generateObject();
+        paint();
+    }
     public Button ClickButton;
 
     public Label outputLabel;
@@ -29,43 +36,41 @@ public class TetrisController {
     public Pane Layout;
     public AnchorPane screen1;
 
-    double game_size_height ;
-    double game_size_width;
-
-
-
-    public void generateObject (){
-        int PosX = ((int)Math.random())/GameObject.Object_size;
-        int PosY=500/GameObject.Object_size;
-
-        GameObject gameObject= new GameObject(PosX,PosY);
-        GameObjectArray [PosX][PosY] = gameObject;
-
-
-    }
 
 
     public GameObject [][] GameObjectArray;
+    public final int game_size_X = 300/GameObject.Object_size;
+    public final int game_size_Y = 500/GameObject.Object_size;
 
+    public void generateObject (){
+        int PosX = (int)(Math.random()*game_size_X);
+        int PosY = 0;
 
+        GameObject gameObject= new GameObject(PosX,PosY);
+        GameObjectArray [PosX][PosY] = gameObject;
+        System.out.println("Object generiert");
+    }
 
-    //GameObjectArray = new GameObject[][]
+    public void generateLayout() {
+        //Layout = new Pane();
+    }
 
-    /*  public void paint(){
-        for (int i=0; i<game_size_width;i++)
+    public void paint(){
+        for (int i=0; i<game_size_X;i++)
         {
-            for(int j=0; j<game_size_height;j++)
+            for(int j=0; j<game_size_Y;j++)
             {
-                if(myController.GameObjectArray[i][j] != null)
+                if(GameObjectArray[i][j] != null)
                 {
-                    paintGameObject(myController.GameObjectArray[i][j],i,j);
+                    paintGameObject(GameObjectArray[i][j],i,j);
+                    System.out.println("Object gezeichnet");
                 }
             }
         }
     }
 
-
         public void paintGameObject(GameObject gameObject, int PosX, int PosY){
+
             if(Layout.getChildren().contains(gameObject) != true)
             {
                 Layout.getChildren().add(gameObject);
@@ -74,9 +79,8 @@ public class TetrisController {
             gameObject.setFill(Color.ORANGE);
             gameObject.setLayoutX(PosX*GameObject.Object_size);
             gameObject.setLayoutY(PosY*GameObject.Object_size);
+            System.out.println("Gameobject gezeichnet");
         }
-
-*/
 
     }
 
