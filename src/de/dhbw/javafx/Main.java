@@ -10,21 +10,16 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-public GameObject rectangle;
-
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
 
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Screen1_Spiel_Tetris.fxml"));
         loader.load();
         Parent root = loader.getRoot();
         StartController controller = loader.getController();
-
         controller.stage = primaryStage;
-
 
         primaryStage.setTitle("Tetris");
         Scene scene1 = new Scene(root, 200, 200);

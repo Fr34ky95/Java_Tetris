@@ -30,7 +30,6 @@ public class StartController {
     public void Buttonclicked(ActionEvent actionEvent) {
 
 
-
         Stage stage = new Stage();
         try {
             stage.setTitle("Tetris");
@@ -46,7 +45,6 @@ public class StartController {
             stage.show();
 
             this.stage.close();
-
 
 
         } catch (IOException e) {

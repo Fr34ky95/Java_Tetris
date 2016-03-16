@@ -51,7 +51,7 @@ public class TetrisController  implements EventHandler<KeyEvent> {
     public final int game_size_Y = 500 / GameObject.Object_size;
 
     public GameObject generateObject() {
-        int PosX = (int) (Math.random() * game_size_X);
+        int PosX = (int) (Math.random() * (game_size_X));
         int PosY = 0;
 
         GameObject gameObject = new GameObject(PosX, PosY, 10);
@@ -81,7 +81,7 @@ public class TetrisController  implements EventHandler<KeyEvent> {
         }
         gameObject.setStroke(Color.ORANGE);
         gameObject.setFill(Color.ORANGE);
-        gameObject.setLayoutX(PosX * GameObject.Object_size);
+        gameObject.setLayoutX(PosX * GameObject.Object_size-10);
         gameObject.setLayoutY(PosY * GameObject.Object_size);
 
     }
@@ -94,8 +94,10 @@ public class TetrisController  implements EventHandler<KeyEvent> {
         generateLayout();
         active = generateObject();
         paint();
+
         active.move();
-        //outputLabel.getS
+
+
         stage.getScene().setOnKeyPressed(this);
     }
 
@@ -106,11 +108,15 @@ public class TetrisController  implements EventHandler<KeyEvent> {
 
         switch (code){
             case RIGHT:
-                active.setLayoutX(active.getLayoutX()+ 10);
+                if(active.getLayoutX()<Layout.getWidth()- GameObject.Object_size ) {
+                    active.setLayoutX(active.getLayoutX() + 20);
+                }
                 break;
             case LEFT:
-                active.setLayoutX(active.getLayoutX()-10);
-                break;
+                if(active.getLayoutX()>0) {
+                    active.setLayoutX(active.getLayoutX() - 20);
+                    break;
+                }
         }
 
 
