@@ -27,7 +27,7 @@ public class StartController {
         Stage stage = new Stage();
         try {
             stage.setTitle("Tetris");
-            Parent root2 = FXMLLoader.load(getClass().getResource("Screen2_Spiel_Snake.fxml"));
+            Parent root2 = FXMLLoader.load(getClass().getResource("Screen2_Spiel_Tetris.fxml"));
             Scene scene = new Scene(root2, 600, 600);
             stage.setScene(scene);
             stage.show();

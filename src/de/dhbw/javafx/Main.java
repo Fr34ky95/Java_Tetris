@@ -17,7 +17,7 @@ public class Main extends Application {
 
 
 
-        Parent root = FXMLLoader.load(getClass().getResource("Screen1_Spiel_Snake.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Screen1_Spiel_Tetris.fxml"));
         primaryStage.setTitle("Tetris");
         Scene scene1 = new Scene(root, 200, 200);
         primaryStage.setScene(scene1);
