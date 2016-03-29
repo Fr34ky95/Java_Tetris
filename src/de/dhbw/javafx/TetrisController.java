@@ -61,7 +61,6 @@ public class TetrisController  implements EventHandler<KeyEvent> {
         return gameObject;
     }
 
-
     public void generateLayout() {
     }
 
@@ -81,7 +80,7 @@ public class TetrisController  implements EventHandler<KeyEvent> {
         if (Layout.getChildren().contains(gameObject) != true) {
             Layout.getChildren().add(gameObject);
         }
-        gameObject.setStroke(Color.ORANGE);
+        gameObject.setStroke(Color.WHITE);
         gameObject.setFill(Color.ORANGE);
         gameObject.setLayoutX(PosX * GameObject.Object_size );
         gameObject.setLayoutY(PosY * GameObject.Object_size);
@@ -95,15 +94,34 @@ public class TetrisController  implements EventHandler<KeyEvent> {
         active = null;
         generateLayout();
         active = generateObject();
+        removeRow();
         paint();
         loop.setCycleCount(Timeline.INDEFINITE);
         loop.play();
 
-
         stage.getScene().setOnKeyPressed(this);
     }
 
-    Timeline loop = new Timeline(new KeyFrame(Duration.millis(200), new EventHandler<ActionEvent>() {
+
+    public void removeRow(){
+        int counter = 0;
+        for(int y = 0 ; y<game_size_Y;y++) {
+           counter = 0;
+            for (int i = 0; i < game_size_X; i++) {
+                if (GameObjectArray[i][y] != null) {
+                    counter++;
+                }
+            }
+            if (counter == game_size_X) {
+                for (int i = 0; i < game_size_X; i++) {
+                    Layout.getChildren().remove(GameObjectArray[i][y]);
+                    GameObjectArray[i][y] = null;
+                }
+            }
+        }
+    }
+
+    Timeline loop = new Timeline(new KeyFrame(Duration.millis(300), new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
             if (active.posY < game_size_Y - 1) {
@@ -114,10 +132,10 @@ public class TetrisController  implements EventHandler<KeyEvent> {
                         active.posY++;
                         paint();
                     }
-
             }
             if ((active.posY == game_size_Y - 1) ||(GameObjectArray[active.posX][active.posY + 1] != null)) {
                 active = generateObject();
+                removeRow();
             }
         }
     }));
@@ -137,7 +155,6 @@ public class TetrisController  implements EventHandler<KeyEvent> {
                             active.posX++;
                             paint();
                         }
-
                 }
                 break;
             case LEFT:
@@ -151,29 +168,20 @@ public class TetrisController  implements EventHandler<KeyEvent> {
                     }
                 }
                 break;
+            case DOWN:
+                if (active.posY < game_size_Y - 1) {
+                    if (GameObjectArray[active.posX][active.posY + 1] == null) {
+
+                        GameObjectArray[active.posX][active.posY + 1] = GameObjectArray[active.posX][active.posY];
+                        GameObjectArray[active.posX][active.posY] = null;
+                        active.posY++;
+                        paint();
+                    }
+
+                }
         }
 
     }
 
-
-  /*  @Override
-    public void handle(KeyEvent event) {
-        KeyCode code = event.getCode();
-
-        switch (code){
-            case RIGHT:
-                if (active.getLayoutX() < Layout.getWidth() - GameObject.Object_size) {
-                        active.setLayoutX(active.getLayoutX() + 20);
-                }
-                break;
-            case LEFT:
-                if(active.getLayoutX()>0) {
-                    active.setLayoutX(active.getLayoutX() - 20);
-                }
-                break;
-        }
-
-    }
-    */
 
 }

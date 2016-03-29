@@ -21,20 +21,6 @@ public class GameObject extends Rectangle{
         this.posX = StartX;
         this.posY = StartY;
     }
-    public void move() {
-        if (movesRight) {
-            setLayoutX(getLayoutX() + speed);
-        }else {
-            setLayoutX(getLayoutX() - speed);
-
-        }
-    }
-    public void movedown(){
-        if (movesDown){
-            setLayoutY(getLayoutY()+speed);
-        }
-    }
-
 
 }
 
